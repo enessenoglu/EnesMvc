@@ -1,0 +1,30 @@
+﻿@using EnesMvc.Library
+@{
+    ViewBag.Title = "Index3";
+}
+
+
+<div style="display:block; padding-left:30rem">
+    <h2>Giriş Ekranı</h2>
+    <input type="text" name="txtKullanıcıAdi" placeholder="Kullanıcı Adı" />
+    <br />
+    <input type="password" name="txtParola" placeholder="Parola" />
+    <br />
+    <a href="#" class="btn btn-primary" name="GirisButonu" style="text-align:center">Giriş</a>
+    <br />
+    <label id="label1"></label>
+    
+   
+</div>
+<br />
+<hr />
+@Html.Button("btn01", "button", "şifremi unuttum")
+<hr />
+<form method="post">
+    @Html.Button("btn04", myExtension.ButtonType.Button, "btn btn-danger", null, "bize ulas")
+    <input type="submit" />
+</form>
+<hr />
+@Html.Button("btn03", "btn btn-success", myExtension.ButtonType.Button, "yapımcı")
+<hr />
+@Html.Button("btn04", myExtension.ButtonType.Button,"btn btn-danger",null,"deneme")

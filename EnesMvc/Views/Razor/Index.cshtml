@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Bu bir razor controller sayfası</h1>
+@{ 
+    string Ad = "Enes";
+    string Soyad = "Şenoğlu";
+    string AdSoyad = Ad + " " + Soyad;
+}
+
+@Ad
+<br />
+@Soyad
+<br />
+@AdSoyad
+
+<ul>
+    <li>@Ad</li>
+    <li>@Soyad</li>
+    <li>@Ad @Soyad </li>
+    <li>@AdSoyad</li>
+</ul>

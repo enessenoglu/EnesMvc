@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+@{
+    string[] renkler = { "Sarı", "Mavi", "kırmızı" };
+   
+    
+    foreach (var renk in renkler)
+    {
+        if (renk == "Sarı")
+        {
+            <b style="background-color: red; color: blue">@renk</b>
+        }
+        else if (renk == "Mavi")
+        {
+            <b style="background-color: yellow; color: red">@renk</b>
+        }
+        else
+        {
+            <b style="background-color: blue; color:yellow">@renk</b>
+        }
+        <br />
+        
+    }
+    for (var i = 'a'; i < 'z'; i++)
+        {
+
+                <a href="#" class="btn btn-outline-danger">@i</a>
+
+        }
+
+
+    }
+

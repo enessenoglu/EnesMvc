@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index4";
+}
+
+<h1>Url Helper</h1>
+
+<a id="Link1" href="/Razor/Index3">İndex 3e git</a>
+<a id="Link1" href="@Url.Action("Index3","Razor")" class="btn btn-dark">İndex 3e git</a>
+
+@*@Url.Action()=>Gidilecek action metodunun linkinin urlini verir *@
+@*@Url.Content => sanal olarak verilen bir path'i url'ye çevirir. *@
+@*@Url.Encode()=>encode ile özel karakterler yada boşluk var ise hataya düşmemesi için bu karakterleri özel kodlara çevirerek ulr hatası almadan kullanamamıza yardım eder. *@
+<hr />
+<br />
+@Url.Action("Index")
+<br />
+@Url.Content("~/Razor/Index")
+<br />
+@Url.Encode("~/Home/Index?arama= Enes Şenoğlu")
+<hr />
+<br />
+<h3>Http Utility</h3>
+@HttpUtility.HtmlEncode("<b>Enes Şenoğlu</b>")
+<br />
+@HttpUtility.HtmlDecode("&lt;b&gt;Enes Şenoğlu&lt;/b&gt;")
+<br />
+@HttpUtility.UrlDecode("%7e%2fHome%2fIndex%3farama%3d+enes+%c5%9feno%c4%9flu")
+<hr />
+@Html.Raw("<b>Enes Şenoğlu</b>")
+
+@Html.Raw("<script type='text/javascript'>alert('Merhaba Mvc')</script>")
+
+@*<script type="text/javascript">alert("Merhaba Mvc")</script>*@
+<hr />
+@Html.Raw(ViewBag.Text1)
+<hr />
+<div>
+    <b>Ad Soyad :</b>
+    @ViewData["AdSoyad"]
+    <br />
+    <b>Memleketi</b>
+    @TempData["memleketi"]
+</div>

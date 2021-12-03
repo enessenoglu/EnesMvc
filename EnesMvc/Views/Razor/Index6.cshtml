@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index6";
+}
+
+<h2>Index6</h2>
+<div>
+    @{ 
+        SelectListItem[] liste = new SelectListItem[3]
+        {
+            new SelectListItem(){Text="enes" },
+            new SelectListItem(){Text="hüseyin" },
+            new SelectListItem(){Text="ismail" },
+        };
+    }
+    @using (Html.BeginForm())
+            {
+                @Html.TextBox("text1")
+    <br />
+     @Html.DropDownList("list1",liste)
+<br />
+    @Html.CheckBox("check1") @("onaylıyorum")
+<hr />
+<input type="submit"  name="name" value="Send" />
+            }
+</div>
+
+
