@@ -1,0 +1,46 @@
+﻿@model EnesMvc.Models.Persons
+@{
+    ViewBag.Title = "NewPerson";
+}
+
+<h2>NewPerson</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="input-group">
+        @if (ViewBag.Result != null)
+        {
+            <div class="alert alert-@ViewBag.Status" role="alert">
+                @ViewBag.Result
+            </div>
+        }
+    </div>
+    <div class="input-group mb-3 ">
+        <span id="txtName" class="input-group-text w-25">Name</span>
+        @Html.TextBoxFor(s => s.Name, new { @class = "form-control", placeholder = "Person Name" })
+    </div>
+    <div class="input-group mb-3 ">
+        <span id="txtSurname" class="input-group-text w-25">Surname</span>
+        @Html.TextBoxFor(s => s.Surname, new { @class = "form-control", placeholder = "Person Surname" })
+    </div>
+
+
+    <div class="input-group mb-3 ">
+        <span id="txtAge" class="input-group-text w-25">Age</span>
+        @Html.TextBoxFor(s => s.Age, new { @class = "form-control", placeholder = "Person Age", type = "number", @min = "0" })
+    </div>
+
+    if (ViewBag.Result != null)
+    {
+        <div class="input-group mb-3">
+           @Html.ActionLink("Go back", "Index", "Ef", null, new { @class = "btn btn-primary"})
+        </div>
+    }
+    else
+    {
+        <div class="input-group mb-3 w-25">
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+    }
+}
+

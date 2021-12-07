@@ -1,0 +1,46 @@
+﻿@using EnesMvc.Models
+@model EnesMvc.ViewModel.SchoolAddVeiwModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                @Html.ActionLink(" Add Teacher", "NewTeacher", "Teachers", null, new { @class = "btn btn-primary bi bi-person-plus" })
+            </div>
+            <br /><br />
+            <ul class="list-group">
+                <li class="list-group-item active">
+                    <i class="bi bi-file-person"></i>   Teachers
+                </li>
+                @foreach (var per in Model.teachers)
+                {
+                    <li class="list-group-item">
+                        <i class="bi bi-file-person" style="color:blue"></i>  @(per.Name + " " + per.Surname) (<i>@per.Department</i>)
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <div>
+
+                @Html.ActionLink(" Add Student", "NewStudent", "Students", null, new { @class = "btn btn-primary bi bi-person-circle" })
+            </div>
+            <br /><br />
+            <ul class="list-group">
+                <li class="list-group-item active">
+                    <i class="bi bi-person-circle"></i>   Students
+                </li>
+                @foreach (var stu in Model.students)
+                {
+                    <li class="list-group-item">
+                        <i class="bi bi-person-circle" style="color:forestgreen"></i>   @(stu.Name + "-" + stu.Surname) (<i>@stu.Teachers.Name @stu.Teachers.Surname</i>)
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

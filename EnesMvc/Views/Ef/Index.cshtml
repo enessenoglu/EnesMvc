@@ -1,0 +1,46 @@
+﻿@using EnesMvc.Models
+@*@model List<Persons>*@
+@model EnesMvc.ViewModel.PerAddViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                @Html.ActionLink(" Add Person","NewPerson", "Persons", null, new { @class = "btn btn-primary bi bi-person-plus" })
+            </div>
+            <br /><br />
+            <ul class="list-group">
+                <li class="list-group-item active">
+                    <i class="bi bi-file-person"></i>   Persons
+                </li>
+                @foreach (var per in Model.Persons)
+                {
+            <li class="list-group-item">
+                <i class="bi bi-file-person" style="color:blue"></i>  @(per.Name + " " + per.Surname) (<i>@per.Age</i>)
+            </li>
+                }
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <div>
+                
+                @Html.ActionLink(" Add Address", "NewAdress", "Addresses", null, new { @class = "btn btn-primary  bi bi-plus-circle" })
+            </div>
+            <br /><br />
+            <ul class="list-group">
+                <li class="list-group-item active">
+                    <i class="bi bi-house-door" ></i>   Addresses
+                </li>
+                @foreach (var adr in Model.Addresses)
+                {
+            <li class="list-group-item">
+                <i class="bi bi-house-door" style="color:forestgreen"></i>   @(adr.Description + "-" + adr.City) (<i>@adr.Persons.Name @adr.Persons.Surname</i>)
+            </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

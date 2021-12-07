@@ -1,0 +1,44 @@
+﻿@model EnesMvc.Models.Addresses
+@{
+    ViewBag.Title = "NewAddress";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="input-group">
+        @if (ViewBag.Result != null)
+        {
+            <div class="alert alert-@ViewBag.Status" role="alert">
+                @ViewBag.Result
+            </div>
+        }
+    </div>
+    <div class="input-group mb-3 ">
+        <span id="txtDescription" class="input-group-text w-25">Description</span>
+        @Html.TextAreaFor(s => s.Description, new { @class = "form-control", placeholder = "Address Description",cols="30",rows="10" })
+    </div>
+    <div class="input-group mb-3 ">
+        <span id="txtCity" class="input-group-text w-25">Surname</span>
+        @Html.TextBoxFor(s => s.City, new { @class = "form-control", placeholder = "City" })
+    </div>
+
+
+    <div class="input-group mb-3 ">
+        <span id="txtPerson" class="input-group-text w-25">Person</span>
+        @Html.DropDownListFor(s => s.Persons.Id,(List<SelectListItem>)ViewBag.persons, new { @class = "form-control", placeholder = "Persons"})
+    </div>
+
+    if (ViewBag.Result != null)
+    {
+        <div class="input-group mb-3">
+            @Html.ActionLink("Go back", "Index", "Ef", null, new { @class = "btn btn-primary" })
+        </div>
+    }
+    else
+    {
+        <div class="input-group mb-3 w-25">
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+    }
+}
+

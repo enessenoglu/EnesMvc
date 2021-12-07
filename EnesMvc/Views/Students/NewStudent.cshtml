@@ -1,0 +1,43 @@
+﻿@model EnesMvc.Models.Students
+@{
+    ViewBag.Title = "NewStudent";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="input-group">
+        @if (ViewBag.Result != null)
+        {
+            <div class="alert alert-@ViewBag.Status" role="alert">
+                @ViewBag.Result
+            </div>
+        }
+    </div>
+    <div class="input-group mb-3 ">
+        <span id="txtName" class="input-group-text w-25">Name</span>
+        @Html.TextBoxFor(s => s.Name, new { @class = "form-control", placeholder = "Name"})
+    </div>
+    <div class="input-group mb-3 ">
+        <span id="txtSurname" class="input-group-text w-25">Surname</span>
+        @Html.TextBoxFor(s => s.Surname, new { @class = "form-control", placeholder = "Surname" })
+    </div>
+
+
+    <div class="input-group mb-3 ">
+        <span id="txtteacher" class="input-group-text w-25">Teachers</span>
+        @Html.DropDownListFor(s => s.Teachers.Id, (List<SelectListItem>)ViewBag.teachers, new { @class = "form-control", placeholder = "Persons" })
+    </div>
+
+    if (ViewBag.Result != null)
+    {
+        <div class="input-group mb-3">
+            @Html.ActionLink("Go back", "Index", "EfSchool", null, new { @class = "btn btn-primary" })
+        </div>
+    }
+    else
+    {
+        <div class="input-group mb-3 w-25">
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+    }
+}
